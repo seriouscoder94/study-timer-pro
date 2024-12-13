@@ -165,20 +165,26 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Newsletter Section -->
     <div class="newsletter-section">
         <div class="newsletter-content">
             <h3>Join Our Community</h3>
             <p>Subscribe now for a chance to win a free NFT! Plus, get exclusive productivity tips and early access to new features.</p>
-            <div class="newsletter-form">
-                <input type="email" id="newsletter-email" placeholder="Enter your email">
-                <button id="subscribe-btn">Subscribe & Win</button>
-            </div>
-            <p class="newsletter-note">*Winners are selected monthly. Next draw: January 2024</p>
+            <form action="https://formspree.io/f/xvgonnoa" method="POST" class="newsletter-form-vertical">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    
+    <!-- Newsletter scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="newsletter.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script src="audio.js"></script>
