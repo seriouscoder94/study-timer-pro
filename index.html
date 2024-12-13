@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Timer Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Side - Timer -->
+        <div class="timer-section">
+            <div class="timer-container">
+                <div class="timer-header">
+                    <h1>Study Timer Pro</h1>
+                    <button id="minimize-btn" class="minimize-btn">➖</button>
+                </div>
+                <div class="timer-content">
+                    <div class="timer-display">
+                        <div id="timer">25:00</div>
+                        <div class="timer-controls">
+                            <button id="start-btn">Start</button>
+                            <button id="pause-btn">Pause</button>
+                            <button id="reset-btn">Reset</button>
+                        </div>
+                        <div class="timer-settings">
+                            <label for="work-duration">Work Duration (minutes):</label>
+                            <input type="number" id="work-duration" value="25" min="1" max="60">
+                            <label for="break-duration">Break Duration (minutes):</label>
+                            <input type="number" id="break-duration" value="5" min="1" max="30">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Content Area -->
+        <div class="content-section">
+            <button id="minimize-content-btn" class="minimize-btn">➖</button>
+            <div class="tabs-container">
+                <div class="middle-section">
+                    <div class="middle-header">
+                        <button id="minimize-middle-btn" class="minimize-btn">➖</button>
+                    </div>
+                    <div class="middle-content">
+                        <div class="tabs">
+                            <button class="tab-btn active" data-tab="sounds">Sounds</button>
+                            <button class="tab-btn" data-tab="themes">Themes</button>
+                            <button class="tab-btn" data-tab="about">About</button>
+                        </div>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <!-- Sounds Tab -->
+                            <div id="sounds" class="tab-pane active">
+                                <div class="audio-controls">
+                                    <h3>Lo-fi Music Player</h3>
+                                    <div class="track-selection">
+                                        <select id="track-selector" class="track-selector">
+                                            <option value="sounds/chill-lofi-music-interior-lounge-256260.mp3">Chill Lofi Interior Lounge</option>
+                                            <option value="sounds/christmas-lofi-music-269177.mp3">Christmas Lofi</option>
+                                            <option value="sounds/good-night-lofi-cozy-chill-music-160166.mp3">Good Night Cozy Chill</option>
+                                            <option value="sounds/lofi-chill-jazz-272869.mp3">Lofi Chill Jazz</option>
+                                            <option value="sounds/lofi-orchestra-162306.mp3">Lofi Orchestra</option>
+                                            <option value="sounds/lofi-song-backyard-by-lofium-242713.mp3">Lofi Backyard</option>
+                                            <option value="sounds/lofi-song-jinsei-by-lofium-236730.mp3">Lofi Jinsei</option>
+                                            <option value="sounds/lofi-song-memories-sunbeam-by-lofium-242711.mp3">Lofi Memories Sunbeam</option>
+                                            <option value="sounds/lofi-song-room-by-lofium-242714.mp3">Lofi Room</option>
+                                            <option value="sounds/satisfying-lofi-for-focus-study-amp-working-242103.mp3">Satisfying Lofi for Focus</option>
+                                            <option value="sounds/tasty-chill-lofi-vibe-242105.mp3">Tasty Chill Lofi</option>
+                                        </select>
+                                        <button id="select-track" class="select-track-btn">Select Track</button>
+                                    </div>
+                                    <audio id="lofi-player" controls preload="auto">
+                                        <source src="sounds/chill-lofi-music-interior-lounge-256260.mp3" type="audio/mp3">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+
+                            <!-- Themes Tab -->
+                            <div id="themes" class="tab-pane">
+                                <div class="middle-section">
+                                    <div class="section-header">
+                                        <h2>Themes</h2>
+                                        <button id="minimize-themes-btn" class="minimize-btn">➖</button>
+                                    </div>
+                                    <div class="themes-content">
+                                        <div class="theme-controls">
+                                            <div class="theme-selectors">
+                                                <div class="theme-group">
+                                                    <label for="theme-category">Theme Category:</label>
+                                                    <select id="theme-category" class="theme-select">
+                                                        <option value="cities">Cities</option>
+                                                        <option value="nature">Nature</option>
+                                                        <option value="lofi">Lo-Fi</option>
+                                                        <option value="minimal">Minimal</option>
+                                                        <option value="aesthetic">Aesthetic</option>
+                                                    </select>
+                                                </div>
+                                                <div class="theme-group">
+                                                    <label for="background-select">Background:</label>
+                                                    <select id="background-select" class="theme-select"></select>
+                                                </div>
+                                                <div class="theme-preview" id="theme-preview"></div>
+                                                <div class="theme-buttons">
+                                                    <button id="select-theme" class="theme-btn">Select Theme</button>
+                                                    <button id="random-theme" class="theme-btn">Random Theme</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- About Tab -->
+                            <div id="about" class="tab-pane">
+                                <div class="about-content">
+                                    <h2>Welcome to Study Timer Pro</h2>
+                                    <div class="about-section">
+                                        <h3>Your Study Companion</h3>
+                                        <p>Study Timer Pro is a free, simple, and fast productivity tool designed for students, educators, and professionals. Whether you're in school, college, or at work, our app helps you stay focused and achieve more.</p>
+                                        
+                                        <h3>Why Choose Us?</h3>
+                                        <ul>
+                                            <li> Simple & Fast: Get started in seconds</li>
+                                            <li> 100% Free: No hidden costs</li>
+                                            <li> Lo-fi Music: Stay in the zone</li>
+                                            <li> Beautiful Themes: Customize your experience</li>
+                                        </ul>
+
+                                        <h3>Perfect For</h3>
+                                        <ul class="user-list">
+                                            <li> School Students: Manage homework and study sessions</li>
+                                            <li> College Students: Balance multiple subjects</li>
+                                            <li> Professionals: Stay productive at work</li>
+                                            <li> Self-Learners: Master new skills</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Tasks -->
+        <div class="tasks-section">
+            <div class="section-header">
+                <h2>Tasks</h2>
+                <button id="minimize-tasks-btn" class="minimize-btn">➖</button>
+            </div>
+            <div class="tasks-content">
+                <div class="task-list-container">
+                    <h2>Tasks</h2>
+                    <div class="task-input-container">
+                        <input type="text" id="task-input" placeholder="Enter a task...">
+                        <button id="add-task-btn">➕</button>
+                    </div>
+                    <div class="task-list" id="task-list">
+                        <!-- Tasks will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+        <div class="newsletter-content">
+            <h3>Join Our Community</h3>
+            <p>Subscribe now for a chance to win a free NFT! Plus, get exclusive productivity tips and early access to new features.</p>
+            <div class="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Enter your email">
+                <button id="subscribe-btn">Subscribe & Win</button>
+            </div>
+            <p class="newsletter-note">*Winners are selected monthly. Next draw: January 2024</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="audio.js"></script>
+    <script src="themes.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
